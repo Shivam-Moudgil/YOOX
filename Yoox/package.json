@@ -13,12 +13,17 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@react-icons/all-files": "^4.1.0",
     "axios": "^0.27.2",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2",
+    "react-icons": "^4.4.0",
+    "react-icons-md": "^1.1.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.4.1"
+    "react-router-dom": "^6.4.1",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

@@ -133,7 +133,6 @@ const MainP = () => {
           </SimpleGrid>
         </Grid>
       </Center>
-      <SmFooter />
     </>
   );
 };

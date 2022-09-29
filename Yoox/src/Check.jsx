@@ -8,7 +8,7 @@ function Examplerh() {
         {colorMode === "light" ? (
           <Icon as={MoonIcon} />
         ) : (
-          <Icon as={SunIcon}  />
+          <Icon as={SunIcon} />
         )}
       </Button>
     </header>

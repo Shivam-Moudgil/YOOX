@@ -1,7 +1,10 @@
 import { Box, Center, Image } from '@chakra-ui/react';
 import React from 'react'
+import Five from '../componets/Five';
+import Four from '../componets/Four';
 import MyCarousel from '../componets/Mcarousel'
-import SecoP from '../componets/secoP';
+import Two from '../componets/Two';
+import Footertop from '../SmallNav/FooterTop';
 
 const banner = [
   {
@@ -25,29 +28,39 @@ const banner = [
 const Home = () => {
   return (
     <>
-        <Center
-          pos={"relative"}
-          fontSize={"15px"}
-          fontWeight="bolder"
-                  top={"55"}
-                  letterSpacing={2}
-                  display={"flex"}
-                  flexDirection={"column"}
-        >
-                  THE BIGGEST SALE EVER: UP TO 95% OFF <br />
-                  <Center> Ends 10/1</Center>
-        </Center>
-        <Image
-          w={"1380px"}
-          m={"auto"}
-          src="https://www.yoox.com/images/yoox80/banners/6950_3_Premium_DM.png?634485886869569819#width=1378&height=67"
-        />
-        <Box w={"90%"} m={"auto"}>
-          <MyCarousel items={banner} />
-          </Box>
-          <Box>
-          <SecoP/>
+      <Center
+        pos={"relative"}
+        fontSize={"15px"}
+        fontWeight="bolder"
+        top={"55"}
+        letterSpacing={2}
+        display={"flex"}
+        flexDirection={"column"}
+      >
+        THE BIGGEST SALE EVER: UP TO 95% OFF <br />
+        <Center> Ends 10/1</Center>
+      </Center>
+      <Image
+        w={"1380px"}
+        m={"auto"}
+        src="https://www.yoox.com/images/yoox80/banners/6950_3_Premium_DM.png?634485886869569819#width=1378&height=67"
+      />
+      <Box w={"90%"} m={"auto"}>
+        <MyCarousel items={banner} />
       </Box>
+      <Box>
+       <Two/>
+      </Box>
+      <Box>
+       
+      </Box>
+      <Box>
+       <Four/>
+      </Box>
+      <Box>
+       <Five/>
+      </Box>
+      <Footertop />
     </>
   );
 }
