@@ -10,12 +10,12 @@ export default function MyCarousel({items}) {
         centerSlidePercentage={100}
         infiniteLoop
         swipeable
-        showArrows={false}
+        showArrows={true}
         showStatus={false}
         emulateTouch
         thumbWidth={100}
-        interval={2000}
-        transitionTime={500}
+        interval={3000}
+        transitionTime={600}
         useKeyboardArrows
         stopOnHover
         showThumbs={false}
@@ -26,9 +26,11 @@ export default function MyCarousel({items}) {
             onClick={() => nav(`${item.link}`)}
             key={item.image}
           >
-                <img
-                    style={{ height: "637px" }}
-                    src={item.image} alt="_shivam" />
+            <img
+              style={{height: "637px"}}
+              src={item.image}
+              alt="_shivam"
+            />
           </div>
         ))}
       </Carousel>

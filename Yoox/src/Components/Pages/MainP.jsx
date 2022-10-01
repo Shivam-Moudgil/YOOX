@@ -10,11 +10,13 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import SmFooter from "../SmallNav/SmFooter";
+// import { SmNavbar } from "../SmallNav/Navbar";
+// import SmFooter from "../SmallNav/SmFooter";
 
 const MainP = () => {
   return (
     <>
+      {/* <SmNavbar/> */}
       <Center mt={4}>
         <Image w={"200px"} src="https://www.yoox.com/media/yoox16/header/yoox-logo-p.svg"/>
         {/* <Heading fontFamily={"inherit"} fontWeight={"340"} fontSize={"4rem"}>

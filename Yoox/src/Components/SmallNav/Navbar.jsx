@@ -12,7 +12,9 @@ export const SmNavbar = () => {
   return (
     <>
       {/* <Box p="6" rounded="md" bg="white"> */}
-      <Flex boxShadow="md">
+      <Flex
+        // bg={"rgba(53, 130, 185, 0.893);"}
+        boxShadow="md">
         <Box
           display={"flex"}
           // border={"2px solid"}

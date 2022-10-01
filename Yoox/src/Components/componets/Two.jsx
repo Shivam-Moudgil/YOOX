@@ -23,6 +23,7 @@ const Two = () => {
         h={600}
         display="flex"
         justifyContent={"space-between"}
+        mb={0}
       >
         <GridItem
           fontFamily={"mono"}
@@ -55,7 +56,6 @@ const Two = () => {
       <Center>
         <Box
           boxShadow={
-            // "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
             "2xl"
           }
           borderRadius={"9px"}
@@ -69,11 +69,23 @@ const Two = () => {
           color="black"
         >
           - Designers -
-          {designer.map(({Designers}) => (
-            <Heading color={"blackAlpha.900"} mt={6} fontSize={"15"}>
-              {Designers}
-            </Heading>
-          ))}
+          {designer.map(({ Designers}) => {
+            return (
+              <div  key={Designers}>
+                <Heading
+                
+                  color={"blackAlpha.900"}
+                  mt={6}
+                  cursor={"pointer"}
+                  fontSize={"15"}
+                  _hover={{ color: "red"}}
+                  _pressed={{ Text: "10px" }}
+                >
+                  {Designers}
+                </Heading>
+              </div>
+            );
+          })}
         </Box>
       </Center>
     </div>

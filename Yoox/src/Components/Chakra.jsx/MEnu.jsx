@@ -24,15 +24,15 @@ const [name,setNAme]=useState("")
   useEffect(() => {
       dispatch(Loading(true))
         Countries().then((res) => {
-          console.log(res.data.data);
+          // console.log(res.data.data);
             dispatch(Loading(false));
           dispatch(Country(res.data.data));
         });
     }, [])
-    console.log(state.country)
-    console.log(state.loading)
+    // console.log(state.country)
+    // console.log(state.loading)
 
-console.log(name)
+// console.log(name)
   return (
     <>
       <Menu>
@@ -57,11 +57,15 @@ console.log(name)
                 </Flex>,
               ]}
         </MenuButton>
-        <MenuList border={"2px solid red"} w={"full"}>
+        <MenuList zIndex={'overlay'} border={"2px solid red"} w={"full"}>
           <SimpleGrid columns={5} pl={2} pb={2} rowGap={1} columnGap={3}>
             {state.country.slice(88, 148).map((el, i) => {
               return (
-                <MenuItem key={i} onClick={() => setNAme([el.flag, el.name])}>
+                <MenuItem
+                  zIndex={"20"}
+                  key={i}
+                  onClick={() => setNAme([el.flag, el.name])}
+                >
                   <Image w={5} mr={1} src={el.flag} />
                   {el.name}
                 </MenuItem>

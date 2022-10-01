@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
+  Tooltip,
 } from "@chakra-ui/react";
 import { PhoneIcon } from "@chakra-ui/icons";
 
@@ -108,7 +109,8 @@ export const Signup = () => {
             />
             <br />
             <br />
-            <h3 style={{marginTop:"-10px"}}>OR </h3><h3>WITH YOUR EMAIL</h3>
+            <h3 style={{marginTop: "-10px"}}>OR </h3>
+            <h3>WITH YOUR EMAIL</h3>
             <Input
               pr="4.5rem"
               type="text"
@@ -223,8 +225,13 @@ export const Signup = () => {
             <InputGroup mt={3}>
               <InputLeftElement
                 pointerEvents="none"
-                children={<PhoneIcon color="gray.300" />}
+                children={
+                  <Tooltip label="Phone number" fontSize="md">
+                    <PhoneIcon color="gray.300" />
+                  </Tooltip>
+                }
               />
+
               <Input
                 type="tel"
                 placeholder="Phone number"

@@ -5,9 +5,19 @@ const reducer = (state, action) => {
         return {...state, country: action.payload}
       case "loadingCountry":
         return {...state, loading: action.payload}
+      case "new":
+        return {...state, new: action.payload}
+      case "designers":
+        return {...state, designers: action.payload}
+      case "clothing":
+        return {...state, clothing: action.payload}
+      case "shoes":
+        return {...state, shoes: action.payload}
+      case "accessories":
+        return {...state,accessories: action.payload}
       default:
         return state;
     }
 }
 
-export default reducer
+export default reducer;
