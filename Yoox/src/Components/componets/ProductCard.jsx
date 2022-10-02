@@ -11,13 +11,20 @@ const ProductCard = ({
   Display_image,
   hover_Image,
   Title,
+  rprice,
   price,
-  strikeprice,
 }) => {
   const navigate = useNavigate();
-
+  const dataid = {
+    id:id,
+   img:Display_image,
+   title: Title,
+    price: price,
+    rprice:rprice
+}
   // to navigate to More Product Details
   const VisitSingleProduct = () => {
+    localStorage.setItem("dataID", JSON.stringify(dataid));
     navigate(`/products/${id}`);
   };
 
@@ -39,18 +46,18 @@ const ProductCard = ({
 
      <VStack align="revert-layer">
         <Text fontSize="20" fontStyle="oblique" fontWeight="bold" marginTop={2}>
-          Bewakoof
+         YOOX
         </Text>
         <Text fontSize="15" color="gray.500">
           {Title}
         </Text>
         <Flex>
           <Text fontWeight="bold" fontSize="2xl">
-            ₹{price}
+            ₹{rprice}
           </Text>
 
           <Text as="s" marginLeft={4}>
-            ₹{strikeprice}
+            ₹{price}
           </Text>
         </Flex>
       </VStack> 

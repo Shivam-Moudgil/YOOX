@@ -1,6 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import SingleProductPage from "../Chakra.jsx/SingleProductPage";
-import DesignComponent from "../componets/DesignComponent";
+import Design from "../componets/Designing";
 import MenProducts from "../componets/MenProducts";
 
 import {Signup} from "../componets/Register/Signup";
@@ -40,10 +40,10 @@ function AllRoutes() {
           }
         ></Route>
         <Route
-          path="/artsdesign"
+          path="/arts"
           element={
             <PrivateRoute>
-              <DesignComponent />
+           <Design/>
             </PrivateRoute>
           }
         ></Route>

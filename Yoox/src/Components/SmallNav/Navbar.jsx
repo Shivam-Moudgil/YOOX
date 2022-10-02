@@ -55,27 +55,26 @@ export const SmNavbar = () => {
       //  alert("Login SuccessFull");
       toast({
         title: "Logged in",
+        position: "top-right",
         status: "success",
         duration: 2000,
         isClosable: true,
       });
       dispatch(AUTHLOGIN(true));
-    }
-    else if (email=="" || pass=="") {
-       toast({
-         title: "Fill the details first",
-         status: "info",
-         duration: 2000,
-         isClosable: true,
-       });
-    }
-    else {
-        toast({
-          title: "Wrong credentials",
-          status: "error",
-          duration: 2000,
-          isClosable: true,
-        });
+    } else if (email == "" || pass == "") {
+      toast({
+        title: "Fill the details first",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Wrong credentials",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
     }
     setText(check);
   };

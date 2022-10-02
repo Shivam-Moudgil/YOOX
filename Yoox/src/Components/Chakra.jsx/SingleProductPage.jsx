@@ -73,8 +73,8 @@ const SingleProductPage = () => {
           <Text fontSize="30" fontWeight="bold" marginTop={50} color="gray.500">
             YOOX
           </Text>
-          <Text marginTop={30} fontSize="2xl" color="gray.500">
-            {""}
+          <Text marginTop={3} fontSize="2xl" color="gray.500">
+            {DataId.title}
           </Text>
           <Box display="flex" mt="2" alignItems="center">
             {Array(5)

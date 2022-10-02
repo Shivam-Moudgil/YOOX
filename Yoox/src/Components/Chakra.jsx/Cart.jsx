@@ -21,19 +21,25 @@ import {BsFillBagFill} from "react-icons/bs";
 import {AppContext} from "../AppContext/AppContext";
 
 const Cart = () => {
-  const {isOpen, onOpen, onClose} = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [price, setPrice] = useState(0);
-  const {cart, setCart} = useContext(AppContext);
+  const { cart, setCart } = useContext(AppContext);
   const [quan, setQuan] = useState(1);
   const toast = useToast();
   console.log(cart);
 
   let sum = 0;
+       let rprice; 
   const handlePrice = () => {
     cart.map((item) => {
-      console.log({...item});
-      sum += Number(item.rprice.replace(/[^0-9\-]/g, "") * Number(quan));
-    });
+      if (typeof item.price =="string") {
+        rprice = item.rprice.replace(/[^0-9\-]/g, "")
+      } else {
+        rprice=item.rprice
+      }
+      sum += Number(
+        rprice) * Number(quan)
+      })
     setPrice(sum);
   };
   console.log(sum);
@@ -71,6 +77,10 @@ const Cart = () => {
 
   return (
     <>
+   
+       
+
+     
       <Text onClick={onOpen} cursor={"pointer"}>
         <BsFillBagFill size={18} w={6} h={6} />
       </Text>
@@ -81,10 +91,10 @@ const Cart = () => {
           <DrawerHeader>YOUR CART</DrawerHeader>
 
           <DrawerBody>
-            {cart.map((el,i) => {
+            {cart.map((el, i) => {
               return (
-                  <Box
-                      key={el.id}
+                <Box
+                  key={el.id}
                   border="1px solid"
                   mb={3}
                   display={"flex"}
@@ -96,10 +106,9 @@ const Cart = () => {
                   <Image w={"90px"} h={"70px"} src={el.img} />
                   <Box display={"flex"} gap={"10px"}>
                     {" "}
-                          <Button
+                    <Button
                       disabled={quan == 1}
-                              onClick={() => setQuan(quan - 1)
-                              }
+                      onClick={() => setQuan(quan - 1)}
                     >
                       -
                     </Button>
@@ -120,14 +129,18 @@ const Cart = () => {
               bg={"teal"}
               p={2}
               color="white"
-                      >
-                          {!price?"Your Cart is Empty":
-                "Total : US$ "+ price}
+            >
+              {!price ? "Your Cart is Empty" : "Total : US$ " + price}
             </Text>
           </DrawerBody>
 
           <DrawerFooter w={"full"}>
-            <Button w={"full"} disabled={price==0} colorScheme="blue" onClick={handlePlaceOrder}>
+            <Button
+              w={"full"}
+              disabled={price == 0}
+              colorScheme="blue"
+              onClick={handlePlaceOrder}
+            >
               Checkout
             </Button>
           </DrawerFooter>

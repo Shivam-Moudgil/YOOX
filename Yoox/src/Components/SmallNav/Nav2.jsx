@@ -33,7 +33,7 @@ export default function Nav2() {
               <Link to="/womenPage">WOMEN</Link>
               <Link to="/menPage">MEN</Link>
               <Link to="/home/kids">KIDS</Link>
-              <Link to="/artsdesign">DESIGN+ART</Link>
+              <Link to="/arts">DESIGN+ART</Link>
             </div>
 
             <Link to={"/"}>
