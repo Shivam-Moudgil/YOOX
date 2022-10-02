@@ -15,6 +15,10 @@ const reducer = (state, action) => {
         return {...state, shoes: action.payload}
       case "accessories":
         return {...state,accessories: action.payload}
+      case "auth":
+        return {...state,authLogin: action.payload}
+      case "CArt":
+        return {...state,forCart: action.payload}
       default:
         return state;
     }

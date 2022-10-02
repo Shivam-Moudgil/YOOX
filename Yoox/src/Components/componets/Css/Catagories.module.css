@@ -1,4 +1,19 @@
-.box div{
+.heading{
+    font-size: 23px;
+    width: 90%;
+    margin: 14px auto;
+position: absolute;
+top:30rem;
+right:3rem;
+display:fixed;
+z-index:5
+}
+.container{
+    position: absolute;
+        top: 34rem;
+        left: 6rem;
+       
+}.box div{
     border: none;
 }
 .box button:hover{

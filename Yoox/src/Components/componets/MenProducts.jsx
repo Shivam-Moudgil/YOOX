@@ -117,15 +117,14 @@ const MenProducts = () => {
 
           {/* PRODUCTS */}
 
-          <SimpleGrid spacing={5} columns={[1, 2, 2, 3]}>
-            {mendata.map((el) => (
-              <ProductCard {...el} />
-            ))}
+          <SimpleGrid spacing={5} columns={3}>
+            {mendata.map((el) => {
+              return < ProductCard {...el} />
+              
+})}
           </SimpleGrid>
         </HStack>
       </Wrap>
-
-      <ProductCard />
     </Stack>
   );
 };

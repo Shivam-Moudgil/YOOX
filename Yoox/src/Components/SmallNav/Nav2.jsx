@@ -1,33 +1,26 @@
-import React, { useContext } from 'react'
-import { Box, color, } from '@chakra-ui/react';
-import { Link } from "react-router-dom";
-import "./navbar.css"
-import { BsFillBagFill, BsSuitHeart, BsSearch } from "react-icons/bs";
-import { AppContext } from '../AppContext/AppContext';
+import React, {useContext} from "react";
+import {Box, color} from "@chakra-ui/react";
+import {Link} from "react-router-dom";
+import "./navbar.css";
+import {BsFillBagFill, BsSuitHeart, BsSearch} from "react-icons/bs";
+import {AppContext} from "../AppContext/AppContext";
+import Cart from "../Chakra.jsx/Cart";
 export default function Nav2() {
-const {colored}=useContext(AppContext)
-  // console.log(colored);
-
-  // const cartcount = useSelector((store) => store.cart.Cartdata).length;
-  // const whishlistcount = useSelector((store) => store.wishlist.wishlistData).length;
+  const {colored} = useContext(AppContext);
   let a;
   {
-    colored === "light" ? a =
-  "white": a ="black"
+    colored === "light" ? (a = "white") : (a = "black");
   }
 
-console.log(a)
+  console.log(a);
   return (
     <div>
       <div className="navb">
-        <Box
-          bg={a}
-        >
+        <Box bg={a}>
           <Box
             w="70%"
             m="auto"
             h="60px"
-        
             mt={1}
             fontSize={12.5}
             fontWeight={"555"}
@@ -37,15 +30,15 @@ console.log(a)
             justifyContent="space-around"
           >
             <div style={{display: "flex", columnGap: "20px"}}>
-              <Link to="/home/women">WOMEN</Link>
+              <Link to="/womenPage">WOMEN</Link>
               <Link to="/menPage">MEN</Link>
               <Link to="/home/kids">KIDS</Link>
               <Link to="/home/arts&design">DESIGN+ART</Link>
             </div>
 
             <Link to={"/"}>
-              <img 
-                style={{width: "70px",marginRight:"110px"}}
+              <img
+                style={{width: "70px", marginRight: "110px"}}
                 src={"https://www.yoox.com/media/yoox16/header/yoox-logo-p.svg"}
                 alt="Logo"
               />
@@ -63,16 +56,10 @@ console.log(a)
               </Link>
               <Link style={{fontSize: "20px"}} to="/wishlist">
                 {BsSuitHeart()}{" "}
-                {/* <span className="quantitydiv">
-                { whishlistcount }
-           </span> */}
               </Link>
-              <Link style={{fontSize: "20px"}} to="/cart">
-                {BsFillBagFill()}{" "}
-                {/* <span className="quantitydiv">
-                { cartcount }
-              </span> */}
-              </Link>
+  
+              {<Cart/>}
+              
             </div>
           </Box>
         </Box>

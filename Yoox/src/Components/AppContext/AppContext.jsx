@@ -15,14 +15,17 @@ export const AppContextProvider = ({ children }) => {
     clothing: false,
     shoes: false,
     accessories: false,
-    men: { AllProductsData }
+    men: { AllProductsData },
+    authLogin: false,
+    forCart:[]
   };
   const [state, dispatch] = useReducer(reducer, initState);
-  console.log(state.men.AllProductsData.menData)
   const [colored, setColored] = useState();
+  const [cart, setCart] = useState([]);
+console.log(cart);
 
     return (
-            <AppContext.Provider value={{state,dispatch,colored,setColored}}>
+            <AppContext.Provider value={{state,dispatch,colored,setColored,cart,setCart}}>
                 {children}
         </AppContext.Provider>
     )
