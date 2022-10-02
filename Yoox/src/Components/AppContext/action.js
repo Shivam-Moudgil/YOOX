@@ -40,3 +40,15 @@ export const Accessories = (value) => {
         payload:value
     }
 }
+export const AUTHLOGIN = (value) => {
+    return {
+        type: "auth",
+        payload:value
+    }
+}
+export const CArt = (value) => {
+    return {
+        type: "CArt",
+        payload: value
+    }
+}

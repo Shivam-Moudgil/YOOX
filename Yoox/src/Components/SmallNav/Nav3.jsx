@@ -13,8 +13,6 @@ import SkinCare from "../Chakra.jsx/DesigneRsK";
 import HairCare from "../Chakra.jsx/NewArrivals";
 import BodyCare from "../Chakra.jsx/Clothing";
 import Perfumes from "../Chakra.jsx/Shoes";
-import MenuBar from "../Chakra.jsx/menuBar";
-import Combos from "../Chakra.jsx/ACCESSORIES";
 import ACCESSORIES from "../Chakra.jsx/ACCESSORIES";
 export default function Nav3() {
   // const arr = ["NEW", "ARRIVALS", "DESIGNERS", "CLOTHING", "SHOES", "ACCESSORIES & BAGS", "8 BY YOOX", "YOOXYGEN", "COLLABORATIONS", "BEST", "OFFERS"];

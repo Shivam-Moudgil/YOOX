@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import styled from "styled-components";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import SmFooter from "../../SmallNav/SmFooter";
 import {
@@ -12,13 +12,15 @@ import {
   InputLeftElement,
   InputRightElement,
   Tooltip,
+  useToast,
 } from "@chakra-ui/react";
 import { PhoneIcon } from "@chakra-ui/icons";
 
 export const Signup = () => {
   const [show, setShow] = React.useState(false);
+  const [redirect, setRedirect] = useState(false)
   const handleClick = () => setShow(!show);
-
+const toast =useToast()
 
   const responseSuccessGoogle = (response) => {
     console.log("res", response.Lu);
@@ -57,20 +59,34 @@ export const Signup = () => {
   const register = () => {
     const { first_name, last_name, email, password, dob, number } = user;
     if (first_name && last_name && email && password && dob && number) {
-      axios
-        .post("https://yooxapi.herokuapp.com/user/register", user)
-        .then((res) => console.log(res));
-      alert("Succesfully Added");
-      nav("/login");
+      localStorage.setItem("formREG", JSON.stringify({ email, password }))
+             toast({
+               title: "Account created.",
+               description: "We've created your account for you.",
+               status: "success",
+               duration: 3000,
+               isClosable: true,
+             });
+      setRedirect(true);
+   
     } else {
       alert("Fill all the input fields");
     }
+    setUser(
+      {
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+        dob: "",
+        number: "",
+      })
   };
 
   const Hr = styled.hr`
   `;
-
-  return (
+ if (redirect) return <Navigate to="/" />;
+  return ( 
     <div className="polo">
       <div>
         <div className="myox">
@@ -139,15 +155,6 @@ export const Signup = () => {
               placeholder="Enter last name"
               onChange={handleChange}
             />
-            {/* <input
-              className="inpsignup"
-              type="text"
-              name="last_name"
-              value={user.last_name}
-              placeholder="LAST NAME"
-              onChange={handleChange}
-              // required
-            /> */}
             <br />
             <br />
             <Input
@@ -158,15 +165,6 @@ export const Signup = () => {
               placeholder="Enter email"
               onChange={handleChange}
             />
-            {/* <input
-              className="inpsignup"
-              type="text"
-              name="email"
-              value={user.email}
-              placeholder="E-MAIL"
-              onChange={handleChange}
-              // required
-            /> */}
             <br />
             <br />
             <InputGroup>
@@ -213,15 +211,6 @@ export const Signup = () => {
               value={user.dob}
               onChange={handleChange}
             />
-            {/* <input
-              className="inpsignup"
-              type="date"
-              name="dob"
-              value={user.dob}
-              placeholder="DATE OF BIRTH"
-              onChange={handleChange}
-              // required
-            /> */}
             <InputGroup mt={3}>
               <InputLeftElement
                 pointerEvents="none"
@@ -240,17 +229,7 @@ export const Signup = () => {
                 onChange={handleChange}
               />
             </InputGroup>
-            {/* <p >CELL PHONE</p>
-            <input
-              style={{ paddingLeft: "20px"}}
-              className="inpsignup"
-              placeholder="Contact Number"
-              type="number"
-              name="number"
-              value={user.number}
-              onChange={handleChange}
-              // required
-            /> */}
+       
             <p className="myoxp">
               By entering your phone number, you agree to be contacted by SMS
               for marketing and promotional purposes.

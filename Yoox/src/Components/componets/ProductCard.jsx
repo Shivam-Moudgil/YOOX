@@ -27,6 +27,7 @@ const ProductCard = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        border:"4px solid white"
       }}
     >
       <HoverImage
@@ -36,7 +37,7 @@ const ProductCard = ({
         alt={Title}
       />
 
-      <VStack align="revert-layer">
+     <VStack align="revert-layer">
         <Text fontSize="20" fontStyle="oblique" fontWeight="bold" marginTop={2}>
           Bewakoof
         </Text>
@@ -52,7 +53,7 @@ const ProductCard = ({
             ₹{strikeprice}
           </Text>
         </Flex>
-      </VStack>
+      </VStack> 
     </div>
   );
 };
