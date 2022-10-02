@@ -3,19 +3,16 @@ import SingleProductPage from "../Chakra.jsx/SingleProductPage";
 import DesignComponent from "../componets/DesignComponent";
 import MenProducts from "../componets/MenProducts";
 
-import { Signup } from "../componets/Register/Signup";
+import {Signup} from "../componets/Register/Signup";
 import WomenProducts from "../componets/WomenProduct";
 import PrivateRoute from "../PrivateRoute";
 import Home from "./Home";
-import { Login } from "./Login";
 import MainP from "./MainP";
 function AllRoutes() {
-
   return (
     <>
       <Routes>
         <Route path="/" element={<MainP />}></Route>
-        <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Signup />}></Route>
         <Route
           path="/home/:name"
@@ -43,10 +40,9 @@ function AllRoutes() {
           }
         ></Route>
         <Route
-          path="/home/arts&design"
+          path="/artsdesign"
           element={
             <PrivateRoute>
-              {" "}
               <DesignComponent />
             </PrivateRoute>
           }
@@ -61,7 +57,6 @@ function AllRoutes() {
           }
         />
       </Routes>
-      {/* <Footertop/> */}
     </>
   );
 }

@@ -59,19 +59,18 @@ const Hero = ({data}) => {
   
     
   return (
-    <Slider {...settings} className="poc">
-      {data.map((item) => {
+    <Slider  {...settings} className="poc">
+      {data.map((item,i) => {
         return (
-          <>
-     <div style={{display:"flex",alignItems:"center",border:"2px solid black",flexDirection:"column",borderBottom:"none",height:"340px",background:"lightblue",padding:5,gap:10}} >
-            <img src={item.img[0]} alt="" style={{ width: "200px" }} />
-            <p style={{ fontSize: "14px", fontWeight: "700" }}>{item.name}</p>
+            <div key={i} style={{display:"flex",alignItems:"flex-start",flexDirection:"column",borderBottom:"none",height:"340px",background:"lightblue",padding:5,gap:10}} >
+            <img  src={item.img[0]} alt="" style={{margin:"auto", width: "200px" }} />
+            <p style={{ fontSize: "12px" ,fontWeight: "700" }}>{item.name}</p>
             <p style={{ fontSize: "11px", fontWeight: "500" }}>us$ {item.finalPrice}</p>
           </div>
-       </> );
+       );
       })}
     </Slider>
   );
 }
 
-export default Hero
+export default Hero;

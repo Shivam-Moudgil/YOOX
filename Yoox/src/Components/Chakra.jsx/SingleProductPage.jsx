@@ -13,6 +13,7 @@ import {
   Spinner,
   Stack,
   Text,
+  useToast,
   VStack,
   Wrap,
 } from "@chakra-ui/react";
@@ -27,7 +28,8 @@ import Navbar from "../SmallNav/Navbarmain";
 
 const SingleProductPage = () => {
   const [buttonLoad, setButtonLoad] = useState(false)
-const {cart,setCart}=useContext(AppContext)
+  const { cart, setCart } = useContext(AppContext)
+  const toast = useToast();
   let DataId = JSON.parse(localStorage.getItem("dataID"));
 
   let rating = Math.floor(Math.random() * 5 + 1);
@@ -35,8 +37,15 @@ const {cart,setCart}=useContext(AppContext)
 
   const AddtoCart = () => {
     setButtonLoad(true);
-    setCart([...cart,DataId])
+    setCart([...cart, DataId])
     localStorage.setItem("CartData", JSON.stringify(DataId))
+      toast({
+        title: "Added to cart",
+        position: "top-right",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
   };
   {
     buttonLoad ?

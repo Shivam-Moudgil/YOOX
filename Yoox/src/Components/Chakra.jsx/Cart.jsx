@@ -46,6 +46,7 @@ const Cart = () => {
            toast({
              title: "Redirecting to payment",
              status: "success",
+             position: "top-right",
              duration: 3000,
              isClosable: true,
            });
@@ -60,6 +61,7 @@ const Cart = () => {
               toast({
                 title: "Removed",
                 status: "warning",
+                position: "top-right",
                 duration: 2000,
                 isClosable: true,
               });
@@ -120,7 +122,7 @@ const Cart = () => {
               color="white"
                       >
                           {!price?"Your Cart is Empty":
-            "Total :"+ price}
+                "Total : US$ "+ price}
             </Text>
           </DrawerBody>
 

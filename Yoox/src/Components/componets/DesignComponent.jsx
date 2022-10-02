@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./DesignComponent.css";
 import l1 from "../img/l1.png";
 import l2 from "../img/l2.png";
@@ -13,31 +13,28 @@ import AnimatedBg from "react-animated-bg";
 import Navbar from "../SmallNav/Navbarmain";
 import Footertop from "../SmallNav/FooterTop";
 
-
 const DesignComponent = () => {
-  const [data,setData] =useState([])
+  const [data, setData] = useState([]);
   useEffect(() => {
     getData();
   }, []);
-  function getData ()  {
+  function getData() {
     axios
       .get("https://yooxapi.herokuapp.com/products/design")
       .then(function (response) {
         // handle success
         console.log(response.data);
-        setData(response.data)
+        setData(response.data);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
       });
-  };
-   
- 
+  }
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <AnimatedBg
         colors={[
           "steelblue",
@@ -50,11 +47,11 @@ const DesignComponent = () => {
           "olive",
           "darksand",
           "thistle",
-          "#c89666"
+          "#c89666",
         ]}
         duration={2}
-        delay={3}// it will wait 4 seconds before next transition starts
-        timingFunction="ease-out" 
+        delay={3} // it will wait 4 seconds before next transition starts
+        timingFunction="ease-out"
         className="section-styles"
       >
         <div className="design-container">
@@ -90,7 +87,7 @@ const DesignComponent = () => {
               </div>
             </div>
           </div>
-          <div className="carousal">
+          <div style={{width: "96%", margin: "auto"}} className="carousal">
             <h3>TOP PICKS</h3>
             <Hero data={data} />
           </div>
@@ -99,7 +96,7 @@ const DesignComponent = () => {
           </div>
         </div>
       </AnimatedBg>
-      <Footertop />
+      <div>{<Footertop />}</div>
     </>
   );
 };

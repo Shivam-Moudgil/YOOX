@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import styled from "styled-components";
-import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
-import GoogleLogin from "react-google-login";
-import SmFooter from "../../SmallNav/SmFooter";
+import { Navigate} from "react-router-dom";
 import {
   Button,
   Input,
@@ -22,26 +19,6 @@ export const Signup = () => {
   const handleClick = () => setShow(!show);
 const toast =useToast()
 
-  const responseSuccessGoogle = (response) => {
-    console.log("res", response.Lu);
-    axios({
-      method: "POST",
-      url: "http://localhost:9002/register",
-      data: {
-        first_name: response.Lu.iY,
-        last_name: response.Lu.wW,
-        email: response.Lu.Bv,
-      },
-    }).then((response) => {
-      alert(response.data.message);
-      nav("/login");
-    });
-  };
-  const responseErrorGoogle = (respone) => {
-    console.log("err", respone);
-  };
-
-  const nav = useNavigate();
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -115,14 +92,6 @@ const toast =useToast()
           </div>
           <div className="form">
             <h3>REGISTER WITH YOUR SOCIAL MEDIA ACCOUNT</h3>
-            <GoogleLogin
-              clientId="739317188642-qmnkdd4sei6hbpcth0n3m91q9sgbpikp.apps.googleusercontent.com"
-              buttonText="Login With Google"
-              className="gg"
-              onSuccess={responseSuccessGoogle}
-              onFailure={responseErrorGoogle}
-              cookiePolicy={"single_host_origin"}
-            />
             <br />
             <br />
             <h3 style={{marginTop: "-10px"}}>OR </h3>
