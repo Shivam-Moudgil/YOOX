@@ -7,18 +7,42 @@ import {
   Image,
   SimpleGrid,
   Text,
+  Toast,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { AppContext } from "../AppContext/AppContext";
 // import { SmNavbar } from "../SmallNav/Navbar";
 // import SmFooter from "../SmallNav/SmFooter";
 
 const MainP = () => {
+  const { state } = useContext(AppContext);
+  const navigate = useNavigate()
+  const toast=useToast()
+  const trigger = () => {
+  //  console.log(state.authLogin)
+    if (!state.authLogin) {
+        toast({
+          title: "Login first",
+          description: "If you don't have an account register first",
+          status: "info",
+          position:"top",
+          duration: 2000,
+          isClosable: true,
+        });
+    //  navigate("/register")
+    }
+    // console.log(state.authLogin)
+  }
   return (
     <>
       {/* <SmNavbar/> */}
       <Center mt={4}>
-        <Image w={"200px"} src="https://www.yoox.com/media/yoox16/header/yoox-logo-p.svg"/>
+        <Image
+          w={"200px"}
+          src="https://www.yoox.com/media/yoox16/header/yoox-logo-p.svg"
+        />
         {/* <Heading fontFamily={"inherit"} fontWeight={"340"} fontSize={"4rem"}>
           YOOX
         </Heading> */}
@@ -27,7 +51,7 @@ const MainP = () => {
         <Text fontWeight={500}>SHOP FASHION / DESIGN+ART </Text>
       </Center>
       <Center mt={2}>
-        <Grid>
+        <Grid onClick={trigger}>
           <SimpleGrid w={"6xl"} columns={4} columnGap={4}>
             <Link to="/home/women">
               <GridItem>

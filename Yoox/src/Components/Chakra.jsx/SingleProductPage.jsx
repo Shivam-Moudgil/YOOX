@@ -43,7 +43,7 @@ const SingleProductPage = () => {
         title: "Added to cart",
         position: "top-right",
         status: "success",
-        duration: 2000,
+        duration: 1000,
         isClosable: true,
       });
   };

@@ -15,13 +15,23 @@ import {
   Heading,
   useToast,
 } from "@chakra-ui/react";
-
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+} from "@chakra-ui/react";
 import React, {useContext, useEffect, useState} from "react";
 import {BsFillBagFill} from "react-icons/bs";
+import { Dialog } from "../AppContext/action";
 import {AppContext} from "../AppContext/AppContext";
+import InitialFocus from "./PIN";
+import PIN from "./PIN";
 
 const Cart = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {isOpen, onOpen, onClose} = useDisclosure();
   const [price, setPrice] = useState(0);
   const { cart, setCart } = useContext(AppContext);
   const [quan, setQuan] = useState(1);
@@ -48,15 +58,18 @@ const Cart = () => {
     handlePrice();
   }, [cart,quan]);
 
-  const handlePlaceOrder = () => {
-           toast({
-             title: "Redirecting to payment",
-             status: "success",
-             position: "top-right",
-             duration: 3000,
-             isClosable: true,
-           });
-  };
+//   const handlePlaceOrder = () => {
+//     toast({
+//       title: "Please enter the OTP",
+//       description: "Check your registered number",
+//       status: "info",
+//       position: "top-right",
+//       duration: 3000,
+//       isClosable: true,
+//     });
+//  dispatch(Dialog(true))
+  
+//   };
 
   const REmove = (id) => {
     if (id !== -1) {
@@ -77,10 +90,6 @@ const Cart = () => {
 
   return (
     <>
-   
-       
-
-     
       <Text onClick={onOpen} cursor={"pointer"}>
         <BsFillBagFill size={18} w={6} h={6} />
       </Text>
@@ -98,12 +107,12 @@ const Cart = () => {
                   border="1px solid"
                   mb={3}
                   display={"flex"}
-                  h={"76px"}
+                  h={"86px"}
                   justifyContent={"space-between"}
                   alignItems={"center"}
                   gap={3}
                 >
-                  <Image w={"90px"} h={"70px"} src={el.img} />
+                  <Image w={"90px"} h={"80px"} src={el.img} />
                   <Box display={"flex"} gap={"10px"}>
                     {" "}
                     <Button
@@ -135,17 +144,19 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter w={"full"}>
-            <Button
+            {/* <Button
               w={"full"}
               disabled={price == 0}
               colorScheme="blue"
               onClick={handlePlaceOrder}
             >
               Checkout
-            </Button>
+            </Button> */}
+            <InitialFocus/>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+    
     </>
   );
 };

@@ -41,13 +41,18 @@ const toast =useToast()
                title: "Account created.",
                description: "We've created your account for you.",
                status: "success",
-               duration: 3000,
+               duration: 2000,
                isClosable: true,
              });
       setRedirect(true);
    
     } else {
-      alert("Fill all the input fields");
+      toast({
+        title: "Input fields first",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
     }
     setUser(
       {

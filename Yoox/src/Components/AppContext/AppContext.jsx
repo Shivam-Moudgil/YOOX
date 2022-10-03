@@ -17,7 +17,8 @@ export const AppContextProvider = ({ children }) => {
     accessories: false,
     men: { AllProductsData },
     authLogin: false,
-    forCart:[]
+    forCart: [],
+    dialog:false,
   };
   const [state, dispatch] = useReducer(reducer, initState);
   const [colored, setColored] = useState();

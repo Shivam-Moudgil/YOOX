@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import { MdOutlineEmail } from "react-icons/md";
-import { Button, Input, Radio,RadioGroup,Stack, Text } from "@chakra-ui/react";
+import { Button, Input, Radio,RadioGroup,Stack, Text, useToast } from "@chakra-ui/react";
 import "./footer.css"
+import { useNavigate } from 'react-router-dom';
 export default function Form() {
-const [state,setState]=useState(false)
+  const [state, setState] = useState(false)
+  const toast = useToast();
+  // const navigate=useNavigate()
   const trigger = () => {
-alert("Yo Bitch")
+ toast({
+   title: "You'll get updates on email",
+   status: "success",
+   position: "top",
+   duration: 2000,
+   isClosable: true,
+ });
+    // navigate("/home/women")
   }
 
   return (

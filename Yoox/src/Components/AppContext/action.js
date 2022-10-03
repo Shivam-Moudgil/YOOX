@@ -52,3 +52,9 @@ export const CArt = (value) => {
         payload: value
     }
 }
+export const Dialog = (value) => {
+    return {
+        type: "dialog",
+        payload: value
+    }
+}

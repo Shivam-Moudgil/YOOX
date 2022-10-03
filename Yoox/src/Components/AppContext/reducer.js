@@ -19,6 +19,8 @@ const reducer = (state, action) => {
         return {...state,authLogin: action.payload}
       case "CArt":
         return {...state,forCart: action.payload}
+      case "dialog":
+        return {...state,dialog: action.payload}
       default:
         return state;
     }

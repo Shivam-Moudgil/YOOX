@@ -17,8 +17,8 @@ function AllRoutes() {
         <Route
           path="/home/:name"
           element={
-            <PrivateRoute>
-              {" "}
+           <PrivateRoute>
+            
               <Home />
             </PrivateRoute>
           }

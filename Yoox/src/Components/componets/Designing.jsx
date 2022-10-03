@@ -75,7 +75,7 @@ const Design = () => {
           </div>
         </div>
         <div style={{width: "96%", margin: "auto"}} className="carousal">
-          <h3>TOP PICKS</h3>
+          <h3 style={{color:"black"}}>TOP PICKS</h3>
           <Hero data={data} />
         </div>
         <div style={{marginBottom: "40px"}} className="banner">
