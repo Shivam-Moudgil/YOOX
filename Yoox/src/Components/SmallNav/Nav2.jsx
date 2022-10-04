@@ -9,7 +9,7 @@ export default function Nav2() {
   const {colored} = useContext(AppContext);
   let a;
   {
-    colored === "light" ? (a = "white") : (a = "black");
+    colored === "light" ? (a = "white") : (a = "#1A202C");
   }
 
   console.log(a);
@@ -21,7 +21,6 @@ export default function Nav2() {
             w="70%"
             m="auto"
             h="60px"
-            mt={1}
             fontSize={12.5}
             fontWeight={"555"}
             fontFamily={"Montserrat,sans-serif"}

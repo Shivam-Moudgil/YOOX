@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import React, {useContext, useEffect, useState} from "react";
 import {BsFillBagFill} from "react-icons/bs";
-import { Dialog } from "../AppContext/action";
+import {Dialog} from "../AppContext/action";
 import {AppContext} from "../AppContext/AppContext";
 import InitialFocus from "./PIN";
 import PIN from "./PIN";
@@ -33,43 +33,30 @@ import PIN from "./PIN";
 const Cart = () => {
   const {isOpen, onOpen, onClose} = useDisclosure();
   const [price, setPrice] = useState(0);
-  const { cart, setCart } = useContext(AppContext);
+  const {cart, setCart} = useContext(AppContext);
   const [quan, setQuan] = useState(1);
   const toast = useToast();
   console.log(cart);
 
   let sum = 0;
-       let rprice; 
+  let rprice;
   const handlePrice = () => {
     cart.map((item) => {
-      if (typeof item.price =="string") {
-        rprice = item.rprice.replace(/[^0-9\-]/g, "")
+      if (typeof item.price == "string") {
+        rprice = item.rprice.replace(/[^0-9\-]/g, "");
       } else {
-        rprice=item.rprice
+        rprice = item.rprice;
       }
-      sum += Number(
-        rprice) * Number(quan)
-      })
+      sum += Number(rprice) * Number(quan);
+    });
     setPrice(sum);
   };
   console.log(sum);
 
   useEffect(() => {
     handlePrice();
-  }, [cart,quan]);
+  }, [cart, quan]);
 
-//   const handlePlaceOrder = () => {
-//     toast({
-//       title: "Please enter the OTP",
-//       description: "Check your registered number",
-//       status: "info",
-//       position: "top-right",
-//       duration: 3000,
-//       isClosable: true,
-//     });
-//  dispatch(Dialog(true))
-  
-//   };
 
   const REmove = (id) => {
     if (id !== -1) {
@@ -77,15 +64,15 @@ const Cart = () => {
       setCart([...cart], cart);
     }
     {
-              toast({
-                title: "Removed",
-                status: "warning",
-                position: "top-right",
-                duration: 2000,
-                isClosable: true,
-              });
+      toast({
+        title: "Removed",
+        status: "warning",
+        position: "top-right",
+        duration: 2000,
+        isClosable: true,
+      });
     }
-    // console.log(id)
+   
   };
 
   return (
@@ -127,7 +114,7 @@ const Cart = () => {
                   <Heading pr={1} fontSize={14}>
                     {el.rprice}
                   </Heading>
-                  <Button onClick={REmove}>Remove</Button>
+                  <Button onClick={()=>REmove(i)}>Remove</Button>
                 </Box>
               );
             })}
@@ -144,19 +131,10 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter w={"full"}>
-            {/* <Button
-              w={"full"}
-              disabled={price == 0}
-              colorScheme="blue"
-              onClick={handlePlaceOrder}
-            >
-              Checkout
-            </Button> */}
-            <InitialFocus/>
+            <InitialFocus />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    
     </>
   );
 };

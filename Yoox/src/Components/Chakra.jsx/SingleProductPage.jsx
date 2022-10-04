@@ -9,6 +9,7 @@ import {
   Flex,
   HStack,
   Image,
+  Skeleton,
   Spacer,
   Spinner,
   Stack,
@@ -22,51 +23,78 @@ import React, {useContext, useEffect, useReducer, useState} from "react";
 // import Loading from './Loding';
 import {AiOutlineHeart} from "react-icons/ai";
 import {BiShoppingBag} from "react-icons/bi";
-import { CArt } from "../AppContext/action";
-import { AppContext } from "../AppContext/AppContext";
+import {CArt} from "../AppContext/action";
+import {AppContext} from "../AppContext/AppContext";
 import Navbar from "../SmallNav/Navbarmain";
 
 const SingleProductPage = () => {
-  const [buttonLoad, setButtonLoad] = useState(false)
-  const { cart, setCart } = useContext(AppContext)
+  const [buttonLoad, setButtonLoad] = useState(false);
+  const { cart, setCart } = useContext(AppContext);
   const toast = useToast();
   let DataId = JSON.parse(localStorage.getItem("dataID"));
+const [isLoading, setIsLoading] = useState(true);
 
+setTimeout(() => {
+  setIsLoading(false);
+}, 1000);
   let rating = Math.floor(Math.random() * 5 + 1);
   let review = Math.floor(Math.random() * (30 - 10 + 1) + 10);
 
   const AddtoCart = () => {
     setButtonLoad(true);
-    setCart([...cart, DataId])
-    localStorage.setItem("CartData", JSON.stringify(DataId))
-      toast({
-        title: "Added to cart",
-        position: "top-right",
-        status: "success",
-        duration: 1000,
-        isClosable: true,
-      });
+
+    // localStorage.setItem("CartData", JSON.stringify(DataId))
+
+    setCart([...cart, DataId]);
+    toast({
+      title: "Added to cart",
+      position: "top-right",
+      status: "success",
+      duration: 1000,
+      isClosable: true,
+    });
   };
   {
-    buttonLoad ?
-      setTimeout(() => {
-        setButtonLoad(false)
-      },1000):null
-}
+    buttonLoad
+      ? setTimeout(() => {
+        setButtonLoad(false);
+      }, 1000)
+      : null;
+  }
+  console.log(typeof DataId.price, DataId.rprice)
+  let A;
+  if (typeof DataId.rprice=="string") {
+     A=DataId.rprice
+  }
+  else {
+   A= "US$ " + DataId.rprice
+  }
+  
+ if (isLoading) {
+   return (
+     <Stack>
+       {Array(25)
+         .fill("")
+         .map((_, i) => (
+           <Skeleton height="20px" />
+         ))}
+     </Stack>
+   );
+ }
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Box
         w={"90%"}
         m="auto"
         display={"flex"}
         justifyContent={"space-between"}
         alignItems="center"
-        mt={4}
+        mt={20}
       >
         <Box w={"40%"}>
-          <Image w={"350px"} m={"auto"} borderRadius={15} src={DataId.img} />
+          <Image w={"300px"} m={"auto"} borderRadius={15} src={DataId.img} />
           <Image w={"250px"} m={"auto"} borderRadius={15} src={DataId.image} />
         </Box>
         <Box>
@@ -93,11 +121,15 @@ const SingleProductPage = () => {
           <Stack>
             <HStack alignContent="center">
               <Text fontWeight="bold" fontSize="4xl">
-                {DataId.rprice ? DataId.rprice : "Sold"}
+                {DataId.price?A:"Sold"}
+                 
+                
               </Text>
 
               <Text as="s" marginLeft={4} fontSize="xl">
-                {DataId.price ? DataId.price : null}
+                {typeof DataId.price == "string"
+                  ? DataId.price
+                  : "US$ " + DataId.price}
               </Text>
             </HStack>
             <Text>inclusive of all taxes</Text>

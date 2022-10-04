@@ -17,6 +17,7 @@ import {ChevronDownIcon, ChevronUpIcon} from "@chakra-ui/icons";
 import { Wproducts } from "../Data/viewAll";
 import WProductCard from "../Chakra.jsx/WProductCard";
 import Catagories from "../Chakra.jsx/Categories";
+import Navbar from "../SmallNav/Navbarmain";
 
 const WomenProducts = () => {
    const [data,setData]=useState([])
@@ -65,13 +66,19 @@ const WomenProducts = () => {
 
     return (
       <>
+        <Navbar />
         <Text textAlign={"center"} color="gray.500" fontWeight="bold">
           {" "}
           HOME / WOMEN / PRODUCTS{" "}
         </Text>
 
         <Stack style={{marginTop: "10px"}}>
-          <Box display="flex" width="80%" margin="auto" justifyContent="space-around">
+          <Box
+            display="flex"
+            width="80%"
+            margin="auto"
+            justifyContent="space-around"
+          >
             <img
               src="https://www.yoox.com/images/yoox80/banners/6825_1_Montblanc_WM_TOPna_sx.jpg?634485886601286852"
               alt=""
@@ -116,14 +123,12 @@ const WomenProducts = () => {
               </HStack>
             </VStack>
 
-            <HStack
-
-                        spacing={190}
-                        display="flex"
-            >
+            <HStack spacing={190} display="flex">
               {/* SIDEBAR */}
-        
-              <Catagories />
+              <Box  pos={"absolute"} top={"28rem"} left={"5rem"}>
+                {" "}
+                <Catagories />
+              </Box>
 
               {/* PRODUCTS */}
 

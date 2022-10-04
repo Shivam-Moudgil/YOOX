@@ -20,14 +20,14 @@ export default function Nav3() {
   let a;
   let b;
   {
-    colored == "light" ? (a = "black") : (a = "lightblue");
-  }
+    colored == "light" ? (a = "black") : (a = "mediumspringgreen");}
+  
   {
     colored != "light" ? (b = "black") : (b = "white");
   }
   return (
     <div>
-      <Box color={b} bg={a}>
+      <Box color={b} bgImage={a} bg={a}>
         <Box
           w="70%"
           h="35px"
@@ -38,6 +38,7 @@ export default function Nav3() {
           display="flex"
           alignItems="center"
           justifyContent={"space-evenly"}
+        
         >
           <li
             onMouseEnter={() => dispatch(New(true))}
@@ -58,7 +59,7 @@ export default function Nav3() {
           <li
             onMouseEnter={() => dispatch(Clothing(true))}
             onMouseLeave={() => dispatch(Clothing(false))}
-            style={{marginRight:"40px"}}
+            style={{marginRight: "40px"}}
           >
             <Link to="/">CLOTHING</Link>
             {/* <SkinCare /> */}
@@ -78,7 +79,7 @@ export default function Nav3() {
           >
             <Link to="/">ACCESSORIES</Link>
             {/* <SkinCare /> */}
-            {state.accessories && <ACCESSORIES/>}
+            {state.accessories && <ACCESSORIES />}
           </li>
         </Box>
       </Box>

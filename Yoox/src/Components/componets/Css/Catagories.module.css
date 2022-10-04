@@ -1,36 +1,29 @@
-.heading{
-    font-size: 23px;
-    width: 90%;
-    margin: 14px auto;
-position: absolute;
-top:30rem;
-right:3rem;
-display:fixed;
-z-index:5
+.heading {
+  font-size: 23px;
+  width: 90%;
+  margin: 14px auto;
 }
-.container{
-    position: absolute;
-        top: 34rem;
-        left: 6rem;
-       
-}.box div{
-    border: none;
+.container {
 }
-.box button:hover{
-    background-color: white !important;
+.box div {
+  border: none;
 }
-.box li{
-    cursor: pointer;
-    margin-bottom: 3px;
-    transition: transform 0.5s ease;
+.box button:hover {
+  /* background-color: white !important; */
 }
-.same{
-    transition: transform 0.5s ease;
-    cursor: pointer;
-    margin-top: 8px;
-    padding-left: 16px;
+.box li {
+  cursor: pointer;
+  margin-bottom: 3px;
+  transition: transform 0.5s ease;
 }
-.box li:hover,.same:hover{
-    text-decoration: underline;
-    transform: translate(10px, 0px);
+.same {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  margin-top: 8px;
+  padding-left: 16px;
+}
+.box li:hover,
+.same:hover {
+  text-decoration: underline;
+  transform: translate(10px, 0px);
 }

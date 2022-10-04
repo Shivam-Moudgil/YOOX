@@ -22,6 +22,7 @@ const WProductCard = ({
     discount,
     image,
     id,
+    quantity:1
   };
   // to navigate to More Product Details
   const VisitSingleProduct = () => {

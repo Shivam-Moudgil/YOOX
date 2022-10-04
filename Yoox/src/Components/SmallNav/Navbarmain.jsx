@@ -5,9 +5,9 @@ export default function Navbar() {
   return (
     <div
       style={{
-        position: "sticky",
-        top: "0px",
-        zIndex: "4",
+        position: "fixed",
+        width:"100%",
+        zIndex: "15",
       }}
     >
       <Nav2></Nav2>

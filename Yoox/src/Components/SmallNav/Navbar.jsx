@@ -29,6 +29,11 @@ import {AppContext} from "../AppContext/AppContext";
 import {AUTHLOGIN} from "../AppContext/action";
 
 export const SmNavbar = () => {
+  const {colored} = useContext(AppContext);
+  let a;
+  {
+    colored === "light" ? (a = "white") : (a = "#1A202C");
+  }
   const {colorMode, toggleColorMode} = useColorMode();
   const {state, dispatch} = useContext(AppContext);
   const toast = useToast();
@@ -90,10 +95,15 @@ export const SmNavbar = () => {
 
   return (
     <>
-      {/* <Box p="6" rounded="md" bg="white"> */}
+      <Box w={
+        "full"
+      } pos={"sticky"}
+        top={"0%"}
+        zIndex={"20"}
+      bg={a}>
       <Flex
-        // bg={"rgba(53, 130, 185, 0.893);"}
-        boxShadow="md"
+ 
+        boxShadow="lg"
       >
         <Box
           display={"flex"}
@@ -218,7 +228,7 @@ export const SmNavbar = () => {
         {<Examplerh />}
       </Flex>
 
-      {/* </Box> */}
+      </Box>
     </>
   );
 };

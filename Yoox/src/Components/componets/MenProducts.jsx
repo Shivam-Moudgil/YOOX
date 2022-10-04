@@ -11,6 +11,7 @@ import {
   IconButton,
   SimpleGrid,
   Spacer,
+  Spinner,
   Stack,
   Text,
   VStack,
@@ -31,11 +32,7 @@ const MenProducts = () => {
   const [mendata, setmenData] = useState([]);
 
   // is Loading   //
-  const [isLoading, setIsLoading] = useState(true);
-
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 1500);
+  
 
   useEffect(() => {
     setmenData(state.men.AllProductsData.menData);
@@ -43,7 +40,7 @@ const MenProducts = () => {
 
   const PriceSortlow = () => {
     const SortedData = state.men.AllProductsData.menData.sort(function (a, b) {
-      return a.rprice - b.rprice;
+      return (a.rprice - b.rprice);
     });
 
     setmenData([...SortedData]);
@@ -54,18 +51,12 @@ const MenProducts = () => {
       return b.rprice - a.rprice;
     });
 
-    setmenData([...SortedData]);
+    setmenData([SortedData]);
   };
 
-  console.log(mendata);
 
-  //  if(isLoading){
-
-  //   return (
-  //      <Loading />
-  //     )
-
-  //  }
+  
+  console.log(mendata)
 
   return (
     <>
@@ -115,15 +106,6 @@ const MenProducts = () => {
             </ButtonGroup>
 
             <HStack width="1200px">
-              <Text color="gray.500" fontWeight="bold">
-                {" "}
-                FILTER{" "}
-              </Text>{" "}
-              <Spacer />
-              <Text color="gray.500" fontWeight="bold">
-                {" "}
-                CLEAR ALL
-              </Text>
             </HStack>
           </VStack>
 

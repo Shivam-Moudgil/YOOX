@@ -6,22 +6,15 @@ import {useNavigate} from "react-router-dom";
 
 {/* <HoverImage src={yourFile} hoverSrc={yourFileHover} />; */}
 
-const ProductCard = ({
-  id,
-  Display_image,
-  hover_Image,
-  Title,
-  rprice,
-  price,
-}) => {
+const ProductCard = ({id, Display_image, hover_Image, Title, rprice, price}) => {
   const navigate = useNavigate();
   const dataid = {
-    id:id,
-   img:Display_image,
-   title: Title,
+    id: id,
+    img: Display_image,
+    title: Title,
     price: price,
-    rprice:rprice
-}
+    rprice: rprice,
+  };
   // to navigate to More Product Details
   const VisitSingleProduct = () => {
     localStorage.setItem("dataID", JSON.stringify(dataid));
@@ -34,7 +27,7 @@ const ProductCard = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        border:"4px solid white"
+        border: "4px solid white",
       }}
     >
       <HoverImage
@@ -44,23 +37,23 @@ const ProductCard = ({
         alt={Title}
       />
 
-     <VStack align="revert-layer">
+      <VStack align="revert-layer">
         <Text fontSize="20" fontStyle="oblique" fontWeight="bold" marginTop={2}>
-         YOOX
+          YOOX
         </Text>
         <Text fontSize="15" color="gray.500">
           {Title}
         </Text>
         <Flex>
           <Text fontWeight="bold" fontSize="2xl">
-            ₹{rprice}
+            US$ {rprice}
           </Text>
 
           <Text as="s" marginLeft={4}>
-            ₹{price}
+            US$ {price}
           </Text>
         </Flex>
-      </VStack> 
+      </VStack>
     </div>
   );
 };

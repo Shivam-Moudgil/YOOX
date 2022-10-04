@@ -11,7 +11,7 @@ import styles from "../componets/Css/Catagories.module.css";
 export default function Catagories() {
     const redirect = useNavigate();
     return (
-      <Box >
+      <Box>
         <div className={styles.heading}>CATEGORIES</div>
         <div className={styles.container}>
           <div className={styles.same} onClick={() => redirect("")}>
