@@ -6,6 +6,7 @@ import {
   Divider,
   HStack,
   IconButton,
+  Progress,
   SimpleGrid,
   Spacer,
   Stack,
@@ -15,9 +16,9 @@ import {
 } from "@chakra-ui/react";
 import {ChevronDownIcon, ChevronUpIcon} from "@chakra-ui/icons";
 import { Wproducts } from "../Data/viewAll";
-import WProductCard from "../Chakra.jsx/WProductCard";
+import WProductCard from "./WProductCard";
 import Catagories from "../Chakra.jsx/Categories";
-import Navbar from "../SmallNav/Navbarmain";
+import Navbar from "../Navbars/Navbarmain";
 
 const WomenProducts = () => {
    const [data,setData]=useState([])
@@ -25,11 +26,11 @@ const WomenProducts = () => {
   // is Loading   //
   const [isLoading, setIsLoading] = useState(true);
 
-    // console.log(Wproducts)
+ 
     
   setTimeout(() => {
     setIsLoading(false);
-  }, 1500);
+  }, 1400);
     
     useEffect(() => {
         setData(Wproducts)
@@ -56,13 +57,9 @@ const WomenProducts = () => {
     setData([...SortedData]);
   };
 
-  //  if(isLoading){
-
-  //   return (
-  //      <Loading />
-  //     )
-
-  //  }
+   if(isLoading){
+return( <Progress size="xs" isIndeterminate />)
+   }
 
     return (
       <>

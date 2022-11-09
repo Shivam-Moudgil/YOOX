@@ -10,8 +10,8 @@ import banner from "../img/design-banner.png";
 import Hero from "./Hero";
 import axios from "axios";
 import AnimatedBg from "react-animated-bg";
-import Navbar from "../SmallNav/Navbarmain";
-import Footertop from "../SmallNav/FooterTop";
+import Navbar from "../Footer/Navbarmain";
+import Footertop from "../Footer/FooterTop";
 
 const DesignComponent = () => {
   const [data, setData] = useState([]);

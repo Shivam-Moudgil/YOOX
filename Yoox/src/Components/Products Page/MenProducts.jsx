@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 
-// import TwoImage from './smallComp.jsx/TwoImages'
 import {
   Box,
   Button,
@@ -9,6 +8,7 @@ import {
   Flex,
   HStack,
   IconButton,
+  Progress,
   SimpleGrid,
   Spacer,
   Spinner,
@@ -17,8 +17,8 @@ import {
   VStack,
   Wrap,
 } from "@chakra-ui/react";
-import Navbar from "../SmallNav/Navbarmain"
-import Footertop from "../SmallNav/Footertop"
+import Navbar from "../Navbars/Navbarmain"
+import Footertop from "../Footer/FooterTop"
 
 import {ChevronDownIcon, ChevronUpIcon} from "@chakra-ui/icons";
 import {useEffect} from "react";
@@ -32,15 +32,20 @@ const MenProducts = () => {
   const [mendata, setmenData] = useState([]);
 
   // is Loading   //
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 1200);
 
   useEffect(() => {
     setmenData(state.men.AllProductsData.menData);
   }, [mendata]);
 
+  // ...............Sorting PRice.................................
   const PriceSortlow = () => {
     const SortedData = state.men.AllProductsData.menData.sort(function (a, b) {
-      return (a.rprice - b.rprice);
+      return a.rprice - b.rprice;
     });
 
     setmenData([...SortedData]);
@@ -54,9 +59,10 @@ const MenProducts = () => {
     setmenData([SortedData]);
   };
 
-
-  
-  console.log(mendata)
+  if (isLoading) {
+    return <Progress size="xs" isIndeterminate />;
+  }
+  // console.log(mendata)
 
   return (
     <>
@@ -105,15 +111,11 @@ const MenProducts = () => {
               />
             </ButtonGroup>
 
-            <HStack width="1200px">
-            </HStack>
+            <HStack width="1200px"></HStack>
           </VStack>
 
           <HStack spacing={50} width="1200px" justify="stretch">
-            {/* SIDEBAR */}
-            {/* <ProductsSidebar   /> */}
-
-            {/* PRODUCTS */}
+            {/* ....................Sidebar space....... */}
 
             <SimpleGrid spacing={5} columns={3}>
               {mendata.map((el) => {

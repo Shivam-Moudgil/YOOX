@@ -3,6 +3,7 @@ import "./Signup.css";
 import styled from "styled-components";
 import { Navigate} from "react-router-dom";
 import {
+  Box,
   Button,
   Input,
   InputGroup,
@@ -68,7 +69,7 @@ const toast =useToast()
   const Hr = styled.hr`
   `;
  if (redirect) return <Navigate to="/" />;
-  return ( 
+  return (
     <div className="polo">
       <div>
         <div className="myox">
@@ -95,21 +96,24 @@ const toast =useToast()
             <h4>Discover all the benefits</h4>
             <br />
           </div>
-          <div className="form">
-            <h3>REGISTER WITH YOUR SOCIAL MEDIA ACCOUNT</h3>
-            <br />
-            <br />
-            <h3 style={{marginTop: "-10px"}}>OR </h3>
-            <h3>WITH YOUR EMAIL</h3>
-            <Input
-              pr="4.5rem"
-              type="text"
-              name="first_name"
-              value={user.first_name}
-              placeholder="Enter first name"
-              onChange={handleChange}
-            />
-            {/* <input
+          <Box m="auto" >
+            <div className="form">
+              <h3>REGISTER WITH YOUR SOCIAL MEDIA ACCOUNT</h3>
+              <br />
+              <br />
+              <h3 style={{marginTop: "-10px"}}>OR </h3>
+              <h3>WITH YOUR EMAIL</h3>
+
+              <Input
+                w={["full"]}
+                pr="4.5rem"
+                type="text"
+                name="first_name"
+                value={user.first_name}
+                placeholder="Enter first name"
+                onChange={handleChange}
+              />
+              {/* <input
               color="black"
               className="inpsignup"
               type="text"
@@ -119,127 +123,137 @@ const toast =useToast()
               onChange={handleChange}
               // required
             /> */}
-            <br />
-            <br />
-            <Input
-              pr="4.5rem"
-              type="text"
-              name="last_name"
-              value={user.last_name}
-              placeholder="Enter last name"
-              onChange={handleChange}
-            />
-            <br />
-            <br />
-            <Input
-              pr="4.5rem"
-              type="text"
-              name="email"
-              value={user.email}
-              placeholder="Enter email"
-              onChange={handleChange}
-            />
-            <br />
-            <br />
-            <InputGroup>
+              <br />
+              <br />
               <Input
+                w={["full"]}
                 pr="4.5rem"
-                type={show ? "text" : "password"}
-                name="password"
-                value={user.password}
-                placeholder="Enter password"
+                type="text"
+                name="last_name"
+                value={user.last_name}
+                placeholder="Enter last name"
                 onChange={handleChange}
               />
-              <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                  {show ? "Hide" : "Show"}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <p className="myoxp">Personalize your shopping experience</p>
-            <div className="checkbox">
-              <input
-                style={{width: "20px", height: "20px"}}
-                type="radio"
-                name="gender"
-                value="male"
-              />
-              <p>Female</p>
-              <input
-                style={{height: "20px", width: "20px"}}
-                type="radio"
-                name="gender"
-                value="female"
-              />
-              <p>Male</p>
-            </div>
-
-            <p className="myoxp" style={{padding: "0 10px"}}>
-              If you are over 18 years old, celebrate your birthday with us: We
-              have a surprise for you.
-            </p>
-            <Input
-              placeholder="DOB"
-              type="date"
-              name="dob"
-              value={user.dob}
-              onChange={handleChange}
-            />
-            <InputGroup mt={3}>
-              <InputLeftElement
-                pointerEvents="none"
-                children={
-                  <Tooltip label="Phone number" fontSize="md">
-                    <PhoneIcon color="gray.300" />
-                  </Tooltip>
-                }
-              />
-
+              <br />
+              <br />
               <Input
-                type="tel"
-                placeholder="Phone number"
-                name="number"
-                value={user.number}
+                w={[ "full"]}
+                pr="4.5rem"
+                type="text"
+                name="email"
+                value={user.email}
+                placeholder="Enter email"
                 onChange={handleChange}
               />
-            </InputGroup>
-       
-            <p className="myoxp">
-              By entering your phone number, you agree to be contacted by SMS
-              for marketing and promotional purposes.
-            </p>
-            <div>
-              <span className="spansignup">
-                I declare that I have read and accept the MYOOX Terms and
-                Conditions of Use
-              </span>
-              <div className="chekbox">
-                <input
-                  style={{marginTop: "0px", margin: "20px"}}
-                  className="inpsignup"
-                  type="checkbox"
+              <br />
+              <br />
+              <InputGroup>
+                <Input
+                  w={ "full"}
+                  pr={["4.5rem"]}
+                  type={show ? "text" : "password"}
+                  name="password"
+                  value={user.password}
+                  placeholder="Enter password"
+                  onChange={handleChange}
                 />
-                <p
-                  style={{
-                    fontSize: "11px",
-                    position: "relative",
-                    right: "20px",
-                  }}
-                >
-                  I agree to the use of my personal data in order to be updated
-                  on new arrivals, informed about exclusive items and contacted
-                  as part of targeted marketing initiatives related to services
-                  offered by YOOX. By analyzing my personal data, order history
-                  and browsing habits, YOOX can improve my shopping experience
-                  with suggestions that correspond to my interests. For further
-                  information, please consult the Privacy Policy.
-                </p>
+                <InputRightElement width={"5.5rem"}>
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <p className="myoxp">Personalize your shopping experience</p>
+              <div className="checkbox">
+                <input
+                  style={{width: "20px", height: "20px"}}
+                  type="radio"
+                  name="gender"
+                  value="male"
+                />
+                <p>Female</p>
+                <input
+                  style={{height: "20px", width: "20px"}}
+                  type="radio"
+                  name="gender"
+                  value="female"
+                />
+                <p>Male</p>
               </div>
-            </div>
-            <button className="register" type="submit" onClick={register}>
-              REGISTER
-            </button>
-          </div>
+
+              <p className="myoxp" style={{padding: "0 10px"}}>
+                If you are over 18 years old, celebrate your birthday with us:
+                We have a surprise for you.
+              </p>
+              <Input
+                placeholder="DOB"
+                type="date"
+                name="dob"
+                value={user.dob}
+                onChange={handleChange}
+              />
+              <InputGroup mt={3}>
+                <InputLeftElement
+                  pointerEvents="none"
+                  children={
+                    <Tooltip label="Phone number" fontSize="md">
+                      <PhoneIcon color="gray.300" />
+                    </Tooltip>
+                  }
+                />
+
+                <Input
+                  type="tel"
+                  placeholder="Phone number"
+                  name="number"
+                  value={user.number}
+                  onChange={handleChange}
+                />
+              </InputGroup>
+
+              <p className="myoxp">
+                By entering your phone number, you agree to be contacted by SMS
+                for marketing and promotional purposes.
+              </p>
+              <div>
+                <span className="spansignup">
+                  I declare that I have read and accept the MYOOX Terms and
+                  Conditions of Use
+                </span>
+                <div className="chekbox">
+                  <input
+                    style={{marginTop: "0px", margin: "20px"}}
+                    className="inpsignup"
+                    type="checkbox"
+                  />
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      position: "relative",
+                      right: "20px",
+                    }}
+                  >
+                    I agree to the use of my personal data in order to be
+                    updated on new arrivals, informed about exclusive items and
+                    contacted as part of targeted marketing initiatives related
+                    to services offered by YOOX. By analyzing my personal data,
+                    order history and browsing habits, YOOX can improve my
+                    shopping experience with suggestions that correspond to my
+                    interests. For further information, please consult the
+                    Privacy Policy.
+                  </p>
+                </div>
+              </div>
+              <Button
+                className="register"
+                type="submit"
+                bg={"teal"}
+                onClick={register}
+              >
+                REGISTER
+              </Button>
+            </div>{" "}
+          </Box>
         </div>
       </div>
     </div>

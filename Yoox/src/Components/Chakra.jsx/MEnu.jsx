@@ -57,8 +57,8 @@ const [name,setNAme]=useState("")
                 </Flex>,
               ]}
         </MenuButton>
-        <MenuList zIndex={'overlay'} border={"2px solid red"} w={"full"}>
-          <SimpleGrid columns={5} pl={2} pb={2} rowGap={1} columnGap={3}>
+        <MenuList zIndex={'overlay'} border={"2px solid red"} h={[40,60,"full","full"]} overflow={["scroll","scroll","hidden","hidden"]}  w={["full"]}>
+          <SimpleGrid columns={[2,3,5,5]} pl={2} pb={2} row={3} overflow={'scroll'} rowGap={1} columnGap={[1,3]}>
             {state.country.slice(88, 148).map((el, i) => {
               return (
                 <MenuItem

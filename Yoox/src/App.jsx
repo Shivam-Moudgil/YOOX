@@ -1,12 +1,10 @@
-import {useState} from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
-import {SmNavbar} from "./Components/SmallNav/Navbar";
-import {AllRoutes} from "./Components/Pages/AllRoutes";
-import SmFooter from "./Components/SmallNav/SmFooter";
-function App() {
-  const [count, setCount] = useState(0);
+import SmFooter from "./Components/Footer/SmFooter";
+import { SmNavbar } from "./Components/Navbars/Navbar";
 
+import {AllRoutes} from "./Components/Pages/AllRoutes";
+
+function App() {
   return (
     <>
       <div className="yrop"

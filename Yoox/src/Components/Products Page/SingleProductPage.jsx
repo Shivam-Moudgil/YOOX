@@ -19,13 +19,12 @@ import {
   Wrap,
 } from "@chakra-ui/react";
 import React, {useContext, useEffect, useReducer, useState} from "react";
-// import { AppContext } from '../../Context/AppContext';
-// import Loading from './Loding';
+
 import {AiOutlineHeart} from "react-icons/ai";
 import {BiShoppingBag} from "react-icons/bi";
 import {CArt} from "../AppContext/action";
 import {AppContext} from "../AppContext/AppContext";
-import Navbar from "../SmallNav/Navbarmain";
+import Navbar from "../Navbars/Navbarmain";
 
 const SingleProductPage = () => {
   const [buttonLoad, setButtonLoad] = useState(false);

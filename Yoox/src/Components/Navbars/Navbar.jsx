@@ -95,7 +95,8 @@ export const SmNavbar = () => {
 
   return (
     <>
-      <Box w={
+      <Box
+        w={
         "full"
       } pos={"sticky"}
         top={"0%"}
@@ -108,13 +109,14 @@ export const SmNavbar = () => {
         <Box
           display={"flex"}
           // border={"2px solid"}
-          w={"75%"}
+          w={["70%","70%","50%","75%"]}
           m="auto"
           justifyContent={"space-between"}
         >
           <Box display={"flex"} alignItems={"center"}>
             <MEnu />
-            <Text
+              <Text
+                display={["none","none","block","ruby"]}
               fontWeight={"bolder"}
               fontSize={"14px"}
               _hover={{textDecorationLine: "none"}}
@@ -124,7 +126,10 @@ export const SmNavbar = () => {
             </Text>
           </Box>
           <Box display={"flex"} alignSelf={"center"}>
-            <Text fontWeight={"bolder"} fontSize={"13px"}>
+              <Text
+                fontWeight={"bolder"} fontSize={["5px", "10px", "10px", "13px"]}
+              display={["none","none","block"]}
+              >
               FREE STANDARD SHIPPING ON ORDERS OVER $100
             </Text>
           </Box>

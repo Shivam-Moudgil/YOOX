@@ -1,11 +1,12 @@
 import {Route, Routes} from "react-router-dom";
-import SingleProductPage from "../Chakra.jsx/SingleProductPage";
+
 import Design from "../componets/Designing";
-import MenProducts from "../componets/MenProducts";
+import MenProducts from "../Products Page/MenProducts";
 
 import {Signup} from "../componets/Register/Signup";
-import WomenProducts from "../componets/WomenProduct";
+import WomenProducts from "../Products Page/WomenProduct";
 import PrivateRoute from "../PrivateRoute";
+import SingleProductPage from "../Products Page/SingleProductPage";
 import Home from "./Home";
 import MainP from "./MainP";
 function AllRoutes() {

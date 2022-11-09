@@ -1,14 +1,15 @@
-import { Box, Center, Image } from '@chakra-ui/react';
-import React from 'react'
-import Five from '../componets/Five';
-import Four from '../componets/Four';
-import MyCarousel from '../componets/Mcarousel'
-import Smbox from '../componets/Smbox';
-import Three from '../componets/Three';
-import Three2 from '../componets/Three2';
-import Two from '../componets/Two';
-import Footertop from '../SmallNav/FooterTop';
-import Navbar from '../SmallNav/Navbarmain';
+import {Box, Center, Image} from "@chakra-ui/react";
+import React from "react";
+import Five from "../componets/Five";
+import Four from "../componets/Four";
+import MyCarousel from "../componets/Mcarousel";
+import Smbox from "../componets/Smbox";
+import Three from "../componets/Three";
+import Three2 from "../componets/Three2";
+import Two from "../componets/Two";
+import Contactbar from "../Footer/Contactbar";
+import Footertop from "../Footer/FooterTop";
+import Navbar from "../Navbars/Navbarmain";
 
 const banner = [
   {
@@ -108,9 +109,10 @@ const Home = () => {
       </Box>
       <Box mt={-44}>
         <Footertop />
+        <Contactbar />
       </Box>
     </>
   );
-}
+};
 
-export default Home
+export default Home;
